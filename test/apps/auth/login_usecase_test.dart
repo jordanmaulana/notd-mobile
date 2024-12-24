@@ -28,7 +28,7 @@ void main() {
       /// Mock login API to return error user not found.
       when(
         dioClient.post(
-          '/api/login',
+          '/v1/login',
           data: {
             'email': 'tes',
             'password': 'tes',
@@ -60,7 +60,7 @@ void main() {
       /// Mock login API to return success with token.
       when(
         dioClient.post(
-          '/api/login',
+          '/v1/login',
           data: {
             'email': 'tes',
             'password': 'tes',
@@ -71,7 +71,7 @@ void main() {
           return Future.value(
             Response(
               requestOptions: RequestOptions(),
-              data: {'api_token': 'token'},
+              data: {'sessionId': 'token'},
             ),
           );
         },
@@ -101,7 +101,7 @@ void main() {
       /// Mock login API to return success with token.
       when(
         dioClient.post(
-          '/api/login',
+          '/v1/login',
           data: {
             'email': 'tes',
             'password': 'tes',
@@ -112,7 +112,7 @@ void main() {
           return Future.value(
             Response(
               requestOptions: RequestOptions(),
-              data: {'api_token': 'token'},
+              data: {'sessionId': 'token'},
             ),
           );
         },
@@ -124,7 +124,7 @@ void main() {
                 Profile(
                   id: 'iddummy',
                   createdAt: DateTime.now(),
-                  email: 'emaildummy',
+                  email: 'tes',
                   name: 'namedummy',
                 ).toResourceSuccess(),
               ));
@@ -138,7 +138,7 @@ void main() {
       expect(result.hasData, true);
 
       /// Expect the data to be the same with mocked data.
-      expect(result.data!.id, 1);
+      expect(result.data!.id, 'iddummy');
     });
   });
 }
