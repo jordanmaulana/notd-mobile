@@ -28,8 +28,8 @@ class ProfileRepo {
       if (!_box.hasData(Constants.token)) {
         return 'Unauthenticated'.toResourceFailure();
       }
-      final response = await _dioClient.get('/api/account');
-      Profile data = Profile.fromJson(response.data['data']);
+      final response = await _dioClient.get('/v1/users/profile');
+      Profile data = Profile.fromJson(response.data);
 
       /// Save the newest profile to local storage
       _box.write(Constants.savedProfile, data.toJson());

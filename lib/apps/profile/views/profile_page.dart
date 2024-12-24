@@ -55,16 +55,16 @@ class ProfilePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Hero(
-                        tag: '${controller.profile?.username}',
+                        tag: '${controller.profile?.email}',
                         child: VText(
-                          '${controller.profile?.username}',
+                          '${controller.profile?.email}',
                           fontSize: 16.0,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                       SizedBox(height: context.smPadding),
                       VText(
-                        '${controller.profile?.firstname} ${controller.profile?.lastname}',
+                        '${controller.profile?.name}',
                         fontSize: 12.0,
                       ),
                     ],
@@ -83,10 +83,6 @@ class ProfilePage extends StatelessWidget {
                       title: controller.profile?.email,
                     ),
                     SizedBox(height: context.smPadding),
-                    ProfileItem(
-                      icon: FontAwesomeIcons.whatsapp,
-                      title: controller.profile?.phone,
-                    ),
                     const Divider(height: 48.0),
                     InkWell(
                       // onTap: () => Get.toNamed(RouteName.updateProfile),

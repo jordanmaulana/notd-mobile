@@ -29,7 +29,7 @@ class DioClient extends DioForNative {
           /// Add bearer token on API request.
           String? token = useToken ? _box.read(Constants.token) : null;
           if (token != null) {
-            options.headers['Authorization'] = 'Bearer $token';
+            options.headers['session-id'] = token;
           }
 
           Get.log('Request ${options.uri.toString()}');

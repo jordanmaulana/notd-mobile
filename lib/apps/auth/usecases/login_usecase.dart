@@ -31,14 +31,14 @@ class LoginUsecase {
       String email, String password) async {
     try {
       final response = await _dioClient.post(
-        '/api/login',
+        '/v1/login',
         data: {
           'email': email,
           'password': password,
         },
       );
 
-      _box.write(Constants.token, response.data['api_token']);
+      _box.write(Constants.token, response.data['sessionId']);
 
       return _profileRepo.getProfile();
     } on DioException catch (e) {

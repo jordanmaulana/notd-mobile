@@ -35,8 +35,7 @@ class _LoginPage extends State<LoginPage> {
                   keyboardType: TextInputType.emailAddress,
                   label: 'Email',
                   hint: 'email@yourdomain.com',
-                  initialValue:
-                      kDebugMode ? 'jordanmaulana25+3@gmail.com' : null,
+                  initialValue: kDebugMode ? 'demo2@gmail.com' : null,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Email harus diisi';
