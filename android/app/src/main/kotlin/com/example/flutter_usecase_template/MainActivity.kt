@@ -1,4 +1,4 @@
-package com.example.flutter_usecase_template
+package com.kakjoe.notd
 
 import io.flutter.embedding.android.FlutterActivity
 
