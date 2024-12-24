@@ -119,8 +119,15 @@ void main() {
       );
 
       /// Mock profile repo to return a profile with id 1.
-      when(profileRepo.getProfile()).thenAnswer(
-          (realInvocation) => Future.value(Profile(id: 1).toResourceSuccess()));
+      when(profileRepo.getProfile())
+          .thenAnswer((realInvocation) => Future.value(
+                Profile(
+                  id: 'iddummy',
+                  createdAt: DateTime.now(),
+                  email: 'emaildummy',
+                  name: 'namedummy',
+                ).toResourceSuccess(),
+              ));
 
       /// Execute login flow
       final result = await loginUsecase.invoke('tes', 'tes');
