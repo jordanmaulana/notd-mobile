@@ -1,4 +1,5 @@
 import 'package:flutter_usecase_template/apps/notes/views/list/note_list_view.dart';
+import 'package:flutter_usecase_template/apps/tags/views/list/tag_list_view.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../base/export_view.dart';
@@ -20,7 +21,7 @@ class MainNavPage extends StatelessWidget {
                 case 0:
                   return NoteListView();
                 case 1:
-                  return Container();
+                  return TagListView();
               }
               return Container();
             },
