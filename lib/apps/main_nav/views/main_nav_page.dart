@@ -1,4 +1,4 @@
-import 'package:flutter_usecase_template/apps/profile/views/profile_page.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 import '../../../base/export_view.dart';
 import '../controllers/main_nav_controller.dart';
@@ -20,31 +20,37 @@ class MainNavPage extends StatelessWidget {
                   return Container();
                 case 1:
                   return Container();
-                case 2:
-                  return const ProfilePage();
               }
               return Container();
             },
           ),
           bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: VColor.white,
+            backgroundColor: Colors.black,
             type: BottomNavigationBarType.fixed,
             currentIndex: controller.index.value,
             showSelectedLabels: false,
             showUnselectedLabels: false,
             elevation: 0.0,
             onTap: (v) => controller.setIndex(v),
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: HugeIcon(
+                  icon: HugeIcons.strokeRoundedHome01,
+                  color: controller.index.value == 0
+                      ? VColor.white
+                      : VColor.greyText,
+                  size: 20.0,
+                ),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.data_array),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
+                icon: HugeIcon(
+                  icon: HugeIcons.strokeRoundedGrid,
+                  color: controller.index.value == 1
+                      ? VColor.white
+                      : VColor.greyText,
+                  size: 20.0,
+                ),
                 label: '',
               ),
             ],

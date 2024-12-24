@@ -6,6 +6,8 @@ import 'package:flutter_usecase_template/configs/route_name.dart';
 import 'package:flutter_usecase_template/init_di.dart';
 import 'package:get/get.dart';
 
+import 'configs/colors.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -18,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        scaffoldBackgroundColor: VColor.scaffoldBg,
       ),
       getPages: [
         GetPage(
