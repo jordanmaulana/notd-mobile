@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
         scaffoldBackgroundColor: VColor.scaffoldBg,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: VColor.scaffoldBg,
+          foregroundColor: VColor.scaffoldBg,
+        ),
       ),
       getPages: [
         GetPage(

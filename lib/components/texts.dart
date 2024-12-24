@@ -28,7 +28,7 @@ class VText extends StatelessWidget {
     this.decoration,
     this.maxLines,
     this.align,
-    this.color = VColor.dark,
+    this.color = VColor.white,
     this.fontStyle,
     this.height,
     super.key,
@@ -43,7 +43,7 @@ class VText extends StatelessWidget {
       color: Colors.transparent,
       child: Text(
         text,
-        style: GoogleFonts.raleway(
+        style: GoogleFonts.roboto(
           color: color,
           fontSize: fontSize,
           fontWeight: fontWeight,

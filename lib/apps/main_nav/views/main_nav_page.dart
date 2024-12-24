@@ -1,3 +1,4 @@
+import 'package:flutter_usecase_template/apps/notes/views/list/note_list_view.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../base/export_view.dart';
@@ -17,7 +18,7 @@ class MainNavPage extends StatelessWidget {
             builder: (context) {
               switch (controller.index.value) {
                 case 0:
-                  return Container();
+                  return NoteListView();
                 case 1:
                   return Container();
               }

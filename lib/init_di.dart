@@ -1,3 +1,4 @@
+import 'package:flutter_usecase_template/apps/notes/controllers/note_list_controller.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -48,4 +49,6 @@ void initDi() {
 
   Get.lazyPut(() => GetProfileUsecase(Get.find()));
   Get.put(ProfileController());
+
+  Get.lazyPut(() => NoteListController(), fenix: true);
 }

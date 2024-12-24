@@ -41,7 +41,7 @@ class DioClient extends DioForNative {
               '${response.statusMessage}\n'
               '${response.requestOptions.uri.queryParameters.prettyPrint}\n');
 
-          Get.log((response.data as Map<String, dynamic>).prettyPrint);
+          // Get.log((response.data));
 
           return handler.next(response);
         },
