@@ -1,3 +1,4 @@
+import 'package:notd_mobile/apps/main_nav/views/main_drawer.dart';
 import 'package:notd_mobile/apps/notes/controllers/note_list_controller.dart';
 import 'package:notd_mobile/apps/notes/models/note.dart';
 import 'package:notd_mobile/apps/notes/views/list/note_item.dart';
@@ -15,7 +16,14 @@ class NoteListView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 40.0,
-        leading: ProfileAvatar(),
+        leading: Builder(builder: (context) {
+          return InkWell(
+            child: ProfileAvatar(),
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        }),
         title: Image.asset(
           Assets.images.logo.path,
           height: 40.0,
@@ -23,6 +31,7 @@ class NoteListView extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+      drawer: MainDrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.blue,
