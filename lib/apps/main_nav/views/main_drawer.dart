@@ -1,3 +1,6 @@
+import 'package:hugeicons/hugeicons.dart';
+import 'package:notd_mobile/apps/profile/controllers/profile_controller.dart';
+import 'package:notd_mobile/apps/profile/views/profile_avatar.dart';
 import 'package:notd_mobile/base/export_view.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -5,32 +8,47 @@ class MainDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        // Important: Remove any padding from the ListView.
-        padding: EdgeInsets.zero,
-        children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Text('Drawer Header'),
+    ProfileController controller = Get.find();
+    return SafeArea(
+      child: Drawer(
+        backgroundColor: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ProfileAvatar(),
+                    SizedBox(height: 16),
+                    VText(
+                      controller.profile?.name,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  VText("Logout"),
+                  IconButton(
+                    icon: HugeIcon(
+                      icon: HugeIcons.strokeRoundedLogout01,
+                      color: VColor.white,
+                      size: 20.0,
+                    ),
+                    onPressed: () {
+                      controller.logout();
+                    },
+                  ),
+                ],
+              ),
+            ],
           ),
-          ListTile(
-            title: const Text('Item 1'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
-          ListTile(
-            title: const Text('Item 2'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
-        ],
+        ),
       ),
     );
   }
