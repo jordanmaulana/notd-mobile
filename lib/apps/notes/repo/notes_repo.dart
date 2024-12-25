@@ -1,5 +1,5 @@
-import 'package:flutter_usecase_template/api/dio_client.dart';
-import 'package:flutter_usecase_template/base/resource.dart';
+import 'package:notd_mobile/api/dio_client.dart';
+import 'package:notd_mobile/base/resource.dart';
 import 'package:get/get.dart';
 
 import '../models/note.dart';

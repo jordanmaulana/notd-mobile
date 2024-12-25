@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_usecase_template/apps/auth/views/login/login_page.dart';
-import 'package:flutter_usecase_template/apps/main_nav/views/main_nav_page.dart';
-import 'package:flutter_usecase_template/apps/profile/controllers/profile_controller.dart';
-import 'package:flutter_usecase_template/configs/route_name.dart';
-import 'package:flutter_usecase_template/init_di.dart';
+import 'package:notd_mobile/apps/auth/views/login/login_page.dart';
+import 'package:notd_mobile/apps/main_nav/views/main_nav_page.dart';
+import 'package:notd_mobile/apps/profile/controllers/profile_controller.dart';
+import 'package:notd_mobile/configs/route_name.dart';
+import 'package:notd_mobile/init_di.dart';
 import 'package:get/get.dart';
 
 import 'configs/colors.dart';

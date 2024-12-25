@@ -1,6 +1,6 @@
-import 'package:flutter_usecase_template/apps/notes/models/note.dart';
-import 'package:flutter_usecase_template/apps/notes/repo/notes_repo.dart';
-import 'package:flutter_usecase_template/base/base_controller.dart';
+import 'package:notd_mobile/apps/notes/models/note.dart';
+import 'package:notd_mobile/apps/notes/repo/notes_repo.dart';
+import 'package:notd_mobile/base/base_controller.dart';
 
 class NoteListController extends BaseListController {
   final NotesRepo _repo = NotesRepo();

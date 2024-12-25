@@ -1,5 +1,5 @@
-import 'package:flutter_usecase_template/apps/notes/views/list/note_list_view.dart';
-import 'package:flutter_usecase_template/apps/tags/views/list/tag_list_view.dart';
+import 'package:notd_mobile/apps/notes/views/list/note_list_view.dart';
+import 'package:notd_mobile/apps/tags/views/list/tag_list_view.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 import '../../../base/export_view.dart';

@@ -1,5 +1,5 @@
-import 'package:flutter_usecase_template/apps/notes/controllers/note_list_controller.dart';
-import 'package:flutter_usecase_template/apps/tags/controllers/tag_list_controller.dart';
+import 'package:notd_mobile/apps/notes/controllers/note_list_controller.dart';
+import 'package:notd_mobile/apps/tags/controllers/tag_list_controller.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 

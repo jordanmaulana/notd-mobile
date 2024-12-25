@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_usecase_template/apps/notes/controllers/note_list_controller.dart';
-import 'package:flutter_usecase_template/apps/notes/models/note.dart';
-import 'package:flutter_usecase_template/apps/notes/views/list/note_item.dart';
-import 'package:flutter_usecase_template/base/export_controller.dart';
-import 'package:flutter_usecase_template/components/lists.dart';
-import 'package:flutter_usecase_template/gen/assets.gen.dart';
+import 'package:notd_mobile/apps/notes/controllers/note_list_controller.dart';
+import 'package:notd_mobile/apps/notes/models/note.dart';
+import 'package:notd_mobile/apps/notes/views/list/note_item.dart';
+import 'package:notd_mobile/base/export_controller.dart';
+import 'package:notd_mobile/components/lists.dart';
+import 'package:notd_mobile/gen/assets.gen.dart';
 
 class NoteListView extends StatelessWidget {
   const NoteListView({super.key});

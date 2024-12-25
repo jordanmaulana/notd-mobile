@@ -1,7 +1,7 @@
 import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_usecase_template/components/texts.dart';
-import 'package:flutter_usecase_template/configs/colors.dart';
+import 'package:notd_mobile/components/texts.dart';
+import 'package:notd_mobile/configs/colors.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import '../../models/note.dart';

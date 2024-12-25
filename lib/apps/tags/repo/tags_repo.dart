@@ -1,6 +1,6 @@
-import 'package:flutter_usecase_template/api/dio_client.dart';
-import 'package:flutter_usecase_template/apps/tags/models/tag.dart';
-import 'package:flutter_usecase_template/base/resource.dart';
+import 'package:notd_mobile/api/dio_client.dart';
+import 'package:notd_mobile/apps/tags/models/tag.dart';
+import 'package:notd_mobile/base/resource.dart';
 import 'package:get/get.dart';
 
 class TagsRepo {

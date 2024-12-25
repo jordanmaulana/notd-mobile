@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_usecase_template/apps/tags/controllers/tag_list_controller.dart';
-import 'package:flutter_usecase_template/base/export_controller.dart';
-import 'package:flutter_usecase_template/components/lists.dart';
-import 'package:flutter_usecase_template/components/texts.dart';
-import 'package:flutter_usecase_template/configs/colors.dart';
+import 'package:notd_mobile/apps/tags/controllers/tag_list_controller.dart';
+import 'package:notd_mobile/base/export_controller.dart';
+import 'package:notd_mobile/components/lists.dart';
+import 'package:notd_mobile/components/texts.dart';
+import 'package:notd_mobile/configs/colors.dart';
 
 import '../../models/tag.dart';
 
