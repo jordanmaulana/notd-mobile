@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:notd_mobile/gen/assets.gen.dart';
 
 import '../../../../base/export_view.dart';
 import '../../../../components/buttons.dart';
@@ -30,6 +31,17 @@ class _LoginPage extends State<LoginPage> {
             key: _formKey,
             child: Column(
               children: [
+                Image.asset(
+                  Assets.images.logo.path,
+                  height: 120.0,
+                  width: 120.0,
+                ),
+                SizedBox(height: context.xlPadding),
+                VText(
+                  "Sign in to Notd",
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
                 SizedBox(height: context.xlPadding),
                 VFormInput(
                   keyboardType: TextInputType.emailAddress,

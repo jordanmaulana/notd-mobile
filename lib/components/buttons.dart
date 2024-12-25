@@ -18,13 +18,8 @@ class PrimaryButton extends StatelessWidget {
         height: 44.0,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          gradient: const LinearGradient(
-            colors: [
-              VColor.primary,
-              VColor.accent,
-            ],
-          ),
+          borderRadius: BorderRadius.circular(32.0),
+          color: Colors.blue,
         ),
         child: VText(
           title,
@@ -52,27 +47,13 @@ class SecondaryButton extends StatelessWidget {
         height: 44.0,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          gradient: const LinearGradient(
-            colors: [
-              VColor.primary,
-              VColor.accent,
-            ],
-          ),
+          borderRadius: BorderRadius.circular(32.0),
+          border: Border.all(color: VColor.white),
         ),
         padding: const EdgeInsets.all(1.0),
-        child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
-            color: VColor.white,
-          ),
-          alignment: Alignment.center,
-          child: VText(
-            title,
-            color: VColor.primary,
-          ),
+        child: VText(
+          title,
+          color: VColor.white,
         ),
       ),
     );
