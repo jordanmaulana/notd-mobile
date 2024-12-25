@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_usecase_template/apps/notes/controllers/note_list_controller.dart';
 import 'package:flutter_usecase_template/apps/notes/models/note.dart';
+import 'package:flutter_usecase_template/apps/notes/views/list/note_item.dart';
 import 'package:flutter_usecase_template/base/export_controller.dart';
-import 'package:flutter_usecase_template/components/texts.dart';
-import 'package:flutter_usecase_template/configs/colors.dart';
+import 'package:flutter_usecase_template/components/lists.dart';
 
 class NoteListView extends StatelessWidget {
   const NoteListView({super.key});
@@ -20,23 +20,15 @@ class NoteListView extends StatelessWidget {
       body: Center(
         child: GetBuilder(
           builder: (NoteListController controller) {
-            return ListView.separated(
-              itemCount: controller.data.length,
-              itemBuilder: (context, index) {
-                Note data = controller.data[index];
-                return ListTile(
-                  title: VText(
-                    data.user.name,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  titleAlignment: ListTileTitleAlignment.top,
-                  leading: CircleAvatar(),
-                  subtitle: VText(data.content),
-                );
+            return VList(
+              loading: controller.loading,
+              length: controller.data.length,
+              itemBuilder: (c, i) {
+                Note data = controller.data[i];
+                return NoteItem(data);
               },
-              separatorBuilder: (BuildContext context, int index) {
-                return Divider(color: VColor.greyText);
-              },
+              onRefresh: controller.resetPage,
+              errorMsg: controller.error,
             );
           },
         ),
