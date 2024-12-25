@@ -4,7 +4,7 @@ import 'package:flutter_usecase_template/apps/notes/models/note.dart';
 import 'package:flutter_usecase_template/apps/notes/views/list/note_item.dart';
 import 'package:flutter_usecase_template/base/export_controller.dart';
 import 'package:flutter_usecase_template/components/lists.dart';
-import 'package:flutter_usecase_template/components/texts.dart';
+import 'package:flutter_usecase_template/gen/assets.gen.dart';
 
 class NoteListView extends StatelessWidget {
   const NoteListView({super.key});
@@ -15,7 +15,11 @@ class NoteListView extends StatelessWidget {
       appBar: AppBar(
         leadingWidth: 40.0,
         leading: CircleAvatar(),
-        title: VText('Notes'),
+        title: Image.asset(
+          Assets.images.logo.path,
+          height: 40.0,
+          width: 40.0,
+        ),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
