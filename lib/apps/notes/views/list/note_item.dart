@@ -1,5 +1,6 @@
 import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:notd_mobile/components/avatar.dart';
 import 'package:notd_mobile/components/texts.dart';
 import 'package:notd_mobile/configs/colors.dart';
 
@@ -29,7 +30,7 @@ class NoteItem extends StatelessWidget {
         fontWeight: FontWeight.bold,
       ),
       titleAlignment: ListTileTitleAlignment.top,
-      leading: CircleAvatar(),
+      leading: Avatar(data.user.name),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

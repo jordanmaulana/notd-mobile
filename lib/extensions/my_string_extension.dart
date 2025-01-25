@@ -15,6 +15,17 @@ extension MyStringExtension on String? {
     );
     return formattedString;
   }
+
+  String get initial {
+    if (this == null) return '';
+
+    return this!
+        .split(' ') // Split the string into words
+        .map((word) => word.isNotEmpty
+            ? word[0].toUpperCase()
+            : '') // Take the first letter of each word and convert it to uppercase
+        .join(); // Combine the initials into a single string
+  }
 }
 
 extension MyMapExtension on dynamic {

@@ -1,29 +1,30 @@
 import 'package:flutter/foundation.dart';
+import 'package:notd_mobile/apps/auth/controllers/register_controller.dart';
 import 'package:notd_mobile/gen/assets.gen.dart';
 
 import '../../../../base/export_view.dart';
 import '../../../../components/buttons.dart';
 import '../../../../components/inputs.dart';
-import '../../../../configs/route_name.dart';
-import '../../controllers/login_controller.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPage();
+  State<RegisterPage> createState() => _RegisterPage();
 }
 
-class _LoginPage extends State<LoginPage> {
+class _RegisterPage extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   late String _email;
   late String _password;
+  late String _name;
 
   @override
   Widget build(BuildContext context) {
-    LoginController controller = Get.put(LoginController());
+    RegisterController controller = Get.put(RegisterController());
 
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(context.mdPadding),
@@ -38,7 +39,7 @@ class _LoginPage extends State<LoginPage> {
                 ),
                 SizedBox(height: context.xlPadding),
                 VText(
-                  "Sign in to Notd",
+                  "Sign up to Notd",
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -59,6 +60,22 @@ class _LoginPage extends State<LoginPage> {
                   },
                 ),
                 SizedBox(height: context.mdPadding),
+                VFormInput(
+                  keyboardType: TextInputType.emailAddress,
+                  label: 'Name',
+                  hint: 'John Doe',
+                  initialValue: kDebugMode ? 'John Doe' : null,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Name must not be empty';
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    _name = value!;
+                  },
+                ),
+                SizedBox(height: context.mdPadding),
                 Obx(() => VFormInput(
                       obscure: controller.obscureText.value,
                       keyboardType: TextInputType.emailAddress,
@@ -69,6 +86,7 @@ class _LoginPage extends State<LoginPage> {
                         if (value!.isEmpty) {
                           return 'Password must not be empty';
                         }
+                        _password = value;
                         return null;
                       },
                       onSaved: (String? value) {
@@ -80,25 +98,46 @@ class _LoginPage extends State<LoginPage> {
                           controller.obscureText.isTrue
                               ? Icons.visibility_outlined
                               : Icons.visibility_off_outlined,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )),
+                SizedBox(height: context.mdPadding),
+                Obx(() => VFormInput(
+                      obscure: controller.obscureConfirmationText.value,
+                      keyboardType: TextInputType.emailAddress,
+                      label: 'Confirmation Password',
+                      hint: '***',
+                      initialValue: kDebugMode ? 'admin123' : null,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Password must not be empty';
+                        }
+
+                        if (_password != value) {
+                          return 'Confirmation password is not the same';
+                        }
+                        return null;
+                      },
+                      suffixIcon: IconButton(
+                        onPressed: controller.toggleConfirmationObscure,
+                        icon: Icon(
+                          controller.obscureText.isTrue
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                          color: Colors.white,
                         ),
                       ),
                     )),
                 SizedBox(height: context.lgPadding),
                 PrimaryButton(
-                  'Login',
+                  'Create Account',
                   onTap: () async {
                     final FormState form = _formKey.currentState!;
                     if (!form.validate()) return;
                     form.save();
-                    controller.submitLogin(_email, _password);
+                    controller.submit(_email, _name, _password);
                   },
-                ),
-                SizedBox(height: context.lgPadding),
-                const VText('Don\'t have account? '),
-                SizedBox(height: context.smPadding),
-                SecondaryButton(
-                  'Create Account',
-                  onTap: () => Get.toNamed(RouteName.register),
                 ),
               ],
             ),

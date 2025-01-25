@@ -16,10 +16,11 @@ abstract class VColor {
   static const Color border = Color(0xffE0E0E0);
   static const Color scaffoldBg = Colors.black;
 
-  static const Color fieldFillColor = Color(0xfff3f3f6);
+  static const Color fieldFillColor = Color(0xff111827);
   static const Color greyText = Color(0xff72678A);
   static const Color titleItemText = Color(0xff736486);
   static const Color avatarBg = Color(0xffFDD8BC);
+  static const Color hintText = Color(0xff9E9E9E);
 
   static const white = Colors.white;
 

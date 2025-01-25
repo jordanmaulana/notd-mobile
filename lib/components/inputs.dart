@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../configs/colors.dart';
 import 'texts.dart';
@@ -61,7 +62,9 @@ class VFormInput extends StatelessWidget {
       maxLength: maxLength,
       autofocus: autoFocus,
       onTap: onTap,
-      // style: TextStyle(),
+      style: GoogleFonts.roboto(
+        color: VColor.white,
+      ),
       enabled: enabled,
       controller: controller,
       obscureText: obscure,
@@ -80,8 +83,10 @@ class VFormInput extends StatelessWidget {
         hintText: hint,
         fillColor: fillColor,
         filled: fillColor != null,
-        // hintStyle: GoogleFonts.openSans(),
-        focusedBorder: _border(color: VColor.primary, radius: radius),
+        hintStyle: GoogleFonts.roboto(
+          color: VColor.hintText,
+        ),
+        focusedBorder: _border(color: Colors.blue, radius: radius),
         enabledBorder:
             _border(color: borderColor ?? VColor.border, radius: radius),
         errorBorder: _border(color: Colors.red, radius: radius),

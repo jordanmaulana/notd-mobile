@@ -5,7 +5,9 @@ import 'package:notd_mobile/apps/profile/controllers/profile_controller.dart';
 import 'package:notd_mobile/configs/route_name.dart';
 import 'package:notd_mobile/init_di.dart';
 import 'package:get/get.dart';
+import 'package:toastification/toastification.dart';
 
+import 'apps/auth/views/register/register_page.dart';
 import 'configs/colors.dart';
 
 class MyApp extends StatelessWidget {
@@ -15,32 +17,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     initDi();
-    return GetMaterialApp(
-      title: 'Notd',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: false,
-        scaffoldBackgroundColor: VColor.scaffoldBg,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: VColor.scaffoldBg,
-          foregroundColor: VColor.scaffoldBg,
+    return ToastificationWrapper(
+      child: GetMaterialApp(
+        title: 'Notd',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: false,
+          scaffoldBackgroundColor: VColor.scaffoldBg,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: VColor.scaffoldBg,
+            foregroundColor: VColor.white,
+          ),
         ),
-      ),
-      getPages: [
-        GetPage(
-          name: RouteName.main,
-          page: () {
-            return GetBuilder(
-              builder: (ProfileController controller) {
-                if (controller.profile == null) return const LoginPage();
-                return const MainNavPage();
-              },
-            );
-          },
-        ),
+        getPages: [
+          GetPage(
+            name: RouteName.main,
+            page: () {
+              return GetBuilder(
+                builder: (ProfileController controller) {
+                  if (controller.profile == null) return const LoginPage();
+                  return const MainNavPage();
+                },
+              );
+            },
+          ),
 
-        /// Add more pages here
-      ],
+          /// Add more pages here
+          GetPage(
+            name: RouteName.register,
+            page: () => const RegisterPage(),
+          ),
+        ],
+      ),
     );
   }
 }
