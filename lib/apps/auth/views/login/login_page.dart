@@ -50,7 +50,7 @@ class _LoginPage extends State<LoginPage> {
                   initialValue: kDebugMode ? 'demo2@gmail.com' : null,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'Email harus diisi';
+                      return 'Email must not be empty';
                     }
                     return null;
                   },
@@ -67,7 +67,7 @@ class _LoginPage extends State<LoginPage> {
                       initialValue: kDebugMode ? 'admin123' : null,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Password harus diisi';
+                          return 'Password must not be empty';
                         }
                         return null;
                       },
@@ -85,7 +85,7 @@ class _LoginPage extends State<LoginPage> {
                     )),
                 SizedBox(height: context.lgPadding),
                 PrimaryButton(
-                  'Masuk',
+                  'Login',
                   onTap: () async {
                     final FormState form = _formKey.currentState!;
                     if (!form.validate()) return;
@@ -94,10 +94,10 @@ class _LoginPage extends State<LoginPage> {
                   },
                 ),
                 SizedBox(height: context.lgPadding),
-                const VText('Tidak memiliki akun? '),
+                const VText('Don\'t have account? '),
                 SizedBox(height: context.smPadding),
                 SecondaryButton(
-                  'Buat Akun',
+                  'Create Account',
                   onTap: () => Get.toNamed(RouteName.register),
                 ),
               ],

@@ -83,7 +83,9 @@ class VFormInput extends StatelessWidget {
         hintText: hint,
         fillColor: fillColor,
         filled: fillColor != null,
-        // hintStyle: GoogleFonts.openSans(),
+        hintStyle: GoogleFonts.roboto(
+          color: VColor.hintText,
+        ),
         focusedBorder: _border(color: Colors.blue, radius: radius),
         enabledBorder:
             _border(color: borderColor ?? VColor.border, radius: radius),

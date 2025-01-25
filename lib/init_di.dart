@@ -1,3 +1,4 @@
+import 'package:notd_mobile/apps/auth/usecases/register_usecase.dart';
 import 'package:notd_mobile/apps/notes/controllers/note_list_controller.dart';
 import 'package:notd_mobile/apps/tags/controllers/tag_list_controller.dart';
 import 'package:get/get.dart';
@@ -45,6 +46,10 @@ void initDi() {
       dioClient: dioClient,
       profileRepo: Get.find(),
     ),
+    fenix: true,
+  );
+  Get.lazyPut(
+    () => RegisterUsecase(dioClient: dioClient),
     fenix: true,
   );
 
