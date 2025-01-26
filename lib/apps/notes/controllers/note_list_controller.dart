@@ -19,6 +19,13 @@ class NoteListController extends BaseListController {
     update(['search_bar']);
   }
 
+  void initSearch(String search) {
+    showSearchBar = true;
+    update(['search_bar']);
+    searchController.text = search;
+    getData();
+  }
+
   @override
   Future<void> getData() async {
     setLoading(true);

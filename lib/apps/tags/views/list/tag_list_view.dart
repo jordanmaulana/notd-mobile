@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notd_mobile/apps/main_nav/controllers/main_nav_controller.dart';
+import 'package:notd_mobile/apps/notes/controllers/note_list_controller.dart';
 
 import 'package:notd_mobile/apps/tags/controllers/tag_list_controller.dart';
 import 'package:notd_mobile/base/export_controller.dart';
@@ -13,6 +15,8 @@ class TagListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MainNavController mainNavController = Get.find();
+    NoteListController noteListController = Get.find();
     return Scaffold(
       appBar: AppBar(),
       body: Center(
@@ -33,6 +37,10 @@ class TagListView extends StatelessWidget {
                     "${data.count} notes",
                     color: VColor.greyText,
                   ),
+                  onTap: () {
+                    mainNavController.setIndex(0);
+                    noteListController.initSearch("#${data.name}");
+                  },
                 );
               },
               onRefresh: controller.resetPage,
