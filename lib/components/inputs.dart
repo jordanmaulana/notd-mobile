@@ -28,6 +28,8 @@ class VFormInput extends StatelessWidget {
   final int? maxLength;
   final bool? dense;
   final String? initialValue;
+  final InputDecoration? inputDecoration;
+  final double? fontSize;
 
   const VFormInput({
     this.label,
@@ -52,6 +54,8 @@ class VFormInput extends StatelessWidget {
     this.autoFill,
     this.dense,
     this.initialValue,
+    this.inputDecoration,
+    this.fontSize,
     super.key,
   });
 
@@ -64,6 +68,7 @@ class VFormInput extends StatelessWidget {
       onTap: onTap,
       style: GoogleFonts.roboto(
         color: VColor.white,
+        fontSize: fontSize,
       ),
       enabled: enabled,
       controller: controller,
@@ -77,12 +82,13 @@ class VFormInput extends StatelessWidget {
       onFieldSubmitted: onSubmit,
       initialValue: initialValue,
       decoration: InputDecoration(
-        label: VText(label),
+        label: label != null ? VText(label) : null,
         isDense: dense,
         suffixIcon: suffixIcon,
         hintText: hint,
         fillColor: fillColor,
         filled: fillColor != null,
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
         hintStyle: GoogleFonts.roboto(
           color: VColor.hintText,
         ),
@@ -92,10 +98,6 @@ class VFormInput extends StatelessWidget {
         errorBorder: _border(color: Colors.red, radius: radius),
         disabledBorder: _border(color: VColor.border, radius: radius),
         focusedErrorBorder: _border(color: VColor.primary, radius: radius),
-        // counterStyle: GoogleFonts.inter(
-        //   color: VColor.hint,
-        //   fontSize: 14.0,
-        // ),
       ),
     );
   }

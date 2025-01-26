@@ -7,9 +7,20 @@ import '../models/note.dart';
 class NotesRepo {
   final DioClient _client = Get.find<DioClient>();
 
-  Future<Resource<List<Note>, String>> getNotes() async {
+  Future<Resource<List<Note>, String>> getNotes({
+    String? search,
+    bool? isPrivate,
+    String? userId,
+  }) async {
     try {
-      final response = await _client.get('/v1/notes');
+      final response = await _client.get(
+        '/v1/notes',
+        queryParameters: {
+          'search': search,
+          'isPrivate': isPrivate,
+          'userId': userId,
+        },
+      );
 
       final notes =
           (response.data as List).map((note) => Note.fromJson(note)).toList();
