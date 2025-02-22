@@ -17,6 +17,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
+          flutter-version: 3.27.4
       - run: flutter --version
 
       - name: Check for outdated Flutter packages
@@ -27,8 +28,6 @@ jobs:
           echo "$output"
           echo "$output" > outdated_report.txt          
           upgradable_packages=$(awk '/direct dependencies:/ {flag=1; next} /^$/ {flag=0} flag' outdated_report.txt)
-          echo ""
-          echo ""
           echo "Updradable packages:"
           echo "$upgradable_packages"
 
