@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 
 import 'constants.dart';
 
@@ -16,14 +16,13 @@ class BuildFlavor {
     required this.apiUrl,
   });
 
-  factory BuildFlavor.initiate({@required buildFlavorType}) {
+  factory BuildFlavor.initiate({required BuildFlavorType buildFlavorType}) {
     switch (buildFlavorType) {
       case BuildFlavorType.production:
         return BuildFlavor(apiUrl: Constants.productionUrl);
       case BuildFlavorType.staging:
         return BuildFlavor(apiUrl: Constants.stagingUrl);
     }
-    return BuildFlavor(apiUrl: Constants.stagingUrl);
   }
 }
 
